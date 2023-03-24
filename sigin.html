@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigIN</title>
+
+    <meta name="google-signin-client_id"
+        content="918956489588-4fdk4fqap082a44rm5n7hdkhh109dng8.apps.googleusercontent.com">
+
+</head>
+
+<body>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <h1>google SigIN</h1>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <!-- Scrip google -->
+    <script>
+        function onSignIn(googleUser) {
+            const id_token = googleUser.getAuthResponse().id_token;
+            // Enviar el token de autenticación al servidor para validar
+        }
+
+        gapi.load('auth2', function () {
+            const auth2 = gapi.auth2.init({
+                client_id: "918956489588-4fdk4fqap082a44rm5n7hdkhh109dng8.apps.googleusercontent.com",
+                // Aquí puedes agregar otros parámetros de configuración
+            });
+            auth2.signIn().then(function (googleUser) {
+                const id_token = googleUser.getAuthResponse().id_token;
+                // Enviar el token de autenticación al servidor para validar
+            });
+        });
+
+
+        /* const { OAuth2Client } = require('google-auth-library');
+        const client = new OAuth2Client("918956489588-4fdk4fqap082a44rm5n7hdkhh109dng8.apps.googleusercontent.com");
+
+        async function verify(token) {
+            const ticket = await client.verifyIdToken({
+                idToken: token,
+                audience: "918956489588-4fdk4fqap082a44rm5n7hdkhh109dng8.apps.googleusercontent.com",  // El ID de cliente de tu aplicación web
+            });
+            const payload = ticket.getPayload();
+            const userid = payload['sub'];
+            // Si el token es válido, devuelve la información del usuario
+            return payload;
+        } */
+    </script>
+
+
+
+
+
+</body>
+
+</html>
